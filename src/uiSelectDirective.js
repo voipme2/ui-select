@@ -83,8 +83,12 @@ uis.directive('uiSelect',
                 locals[$select.parserResult.itemName] = list[p];
                 result = $select.parserResult.modelMapper(scope, locals);
                 if($select.parserResult.trackByExp){
-                    var matches = /\.(.+)/.exec($select.parserResult.trackByExp);
-                    if(matches.length>0 && result[matches[1]] == value[matches[1]]){
+                    var parseByTrackBy = $parse($select.parserResult.trackByExp);
+                    var resultObj = {}, valueObj = {};
+                    resultObj[$select.parserResult.itemName] = result;
+                    valueObj[$select.parserResult.itemName];
+
+                    if(parseByTrackBy(resultObj) == parseByTrackBy(valueObj)){
                         resultMultiple.unshift(list[p]);
                         return true;
                     }
