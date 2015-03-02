@@ -86,7 +86,7 @@ uis.directive('uiSelect',
                     var parseByTrackBy = $parse($select.parserResult.trackByExp);
                     var resultObj = {}, valueObj = {};
                     resultObj[$select.parserResult.itemName] = result;
-                    valueObj[$select.parserResult.itemName];
+                    valueObj[$select.parserResult.itemName] = value;
 
                     if(parseByTrackBy(resultObj) == parseByTrackBy(valueObj)){
                         resultMultiple.unshift(list[p]);
